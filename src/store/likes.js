@@ -1,24 +1,20 @@
-const likes = {}; 
+const likes = new Map();
 // postId -> Set(userId)
 
-export function likePost(postId, userId) {
-  if (!likes[postId]) likes[postId] = new Set();
-  likes[postId].add(userId);
-  return likes[postId].size;
-}
+export function toggleLike(postId, userId) {
+  if (!likes.has(postId)) likes.set(postId, new Set());
 
-export function unlikePost(postId, userId) {
-  if (!likes[postId]) return 0;
-  likes[postId].delete(userId);
-  return likes[postId].size;
+  const set = likes.get(postId);
+
+  if (set.has(userId)) {
+    set.delete(userId);
+    return false; // unliked
+  }
+
+  set.add(userId);
+  return true; // liked
 }
 
 export function countLikes(postId) {
-  if (!likes[postId]) return 0;
-  return likes[postId].size;
-}
-
-export function likedBy(postId, userId) {
-  if (!likes[postId]) return false;
-  return likes[postId].has(userId);
+  return likes.get(postId)?.size || 0;
 }
