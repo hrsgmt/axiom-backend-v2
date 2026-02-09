@@ -1,3 +1,4 @@
+console.log("BOOT_START");
 import Fastify from "fastify";
 
 const app = Fastify();
