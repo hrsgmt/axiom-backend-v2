@@ -1,19 +1,14 @@
-import { createUser, listUsers } from "../store/users.js";
+import { authGuard } from "../middleware/auth.js";
+import { getProfile } from "../store/profile.js";
+import { listFeed } from "../store/posts.js";
 
-export default async function usersRoutes(app) {
+export default async function (app) {
+  app.get("/users/:id", { preHandler: authGuard }, async (req) => {
+    const userId = req.params.id;
 
-  app.post("/users", async (req, reply) => {
-    const { email } = req.body || {};
-    if (!email) {
-      return reply.code(400).send({ error: "email required" });
-    }
+    const profile = getProfile(userId, "");
+    const posts = listFeed().filter(p => p.userId === userId);
 
-    const user = createUser({ email });
-    return { created: true, user };
+    return { profile, posts };
   });
-
-  app.get("/users", async () => {
-    return listUsers();
-  });
-
 }
