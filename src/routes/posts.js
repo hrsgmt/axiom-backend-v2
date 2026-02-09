@@ -3,6 +3,10 @@ import { createPost, listPosts, listFeed, deletePost } from "../store/posts.js";
 import { likePost, unlikePost, countLikes, likedBy } from "../store/likes.js";
 
 export default async function (app) {
+  app.get("/likes-proof", async () => {
+    return { ok: "POSTS_WITH_LIKES_LOADED" };
+  });
+
 
   // create
   app.post("/posts", { preHandler: authGuard }, async (req) => {
