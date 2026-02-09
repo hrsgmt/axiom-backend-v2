@@ -1,3 +1,4 @@
+import likesRoute from "./routes/likes.js";
 import usersRoute from "./routes/users.js";
 console.log("SERVER_FILE_VERSION = 2026-02-09-LIKES");
 REMOVED from "./routes/users.js";
@@ -24,6 +25,7 @@ await app.register(logoutRoute, { prefix: "/api/auth" });
 await app.register(meRoute, { prefix: "/api" });
 await app.register(profileRoute, { prefix: "/api" });
 await app.register(postsRoute, { prefix: "/api" });
+await app.register(likesRoute, { prefix: "/api" });
 console.log("POSTS ROUTE REGISTERED");
 app.get("/", () => ({ ok: true }));
 app.get("/__proof__", async () => ({ build: "NEW_SERVER_OK" }));
