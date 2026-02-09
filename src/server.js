@@ -36,4 +36,5 @@ app.get("/__proof__", async () => ({ build: "NEW_SERVER_OK" }));
 
 app.get("/whoami", async () => ({ repo:"axiom-backend-strong", build:"NEW", time:Date.now() }));
 
+console.log(app.printRoutes());
 await app.listen({ port: process.env.PORT || 4000, host: "0.0.0.0" });
