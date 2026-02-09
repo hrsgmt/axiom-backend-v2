@@ -1,3 +1,4 @@
+console.log("AXIOM_V2_BOOTED");
 import likesRoute from "./routes/likes.js";
 import usersRoute from "./routes/users.js";
 console.log("SERVER_FILE_VERSION = 2026-02-09-LIKES");
