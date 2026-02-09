@@ -1,2 +1,1 @@
-console.log("INDEX_RUNNING");
-setInterval(()=>{},1000);
+import "./src/server.js";
