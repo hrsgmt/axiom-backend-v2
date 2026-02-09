@@ -27,6 +27,7 @@ await app.register(logoutRoute, { prefix: "/api/auth" });
 await app.register(meRoute, { prefix: "/api" });
 await app.register(profileRoute, { prefix: "/api" });
 await app.register(postsRoute, { prefix: "/api" });
+console.log("POSTS ROUTE REGISTERED");
 await app.register(usersRoute, { prefix: "/api" });
 
 app.get("/", () => ({ ok: true }));
