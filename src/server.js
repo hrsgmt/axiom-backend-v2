@@ -1,5 +1,4 @@
 import postsRoute from "./routes/posts.js";
-import usersRoute from "./routes/users.js";
 import profileRoute from "./routes/profile.js";
 import "dotenv/config";
 import Fastify from "fastify";
@@ -27,7 +26,6 @@ await app.register(meRoute, { prefix: "/api" });
 await app.register(profileRoute, { prefix: "/api" });
 await app.register(postsRoute, { prefix: "/api" });
 await app.register(usersRoute, { prefix: "/api" });
-import usersRoute from "./routes/users.js";
 
 app.get("/", () => ({ ok: true }));
 
