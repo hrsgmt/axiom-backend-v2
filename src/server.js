@@ -2,7 +2,7 @@ import Fastify from "fastify";
 
 const app = Fastify();
 
-app.get("/", async () => {
+app.get("/", () => "AXIOM_V2_PIPELINE_TEST_999");
   return "HELLO_AXIOM_V2";
 });
 
