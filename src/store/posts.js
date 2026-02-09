@@ -15,6 +15,10 @@ export function listPosts(userId) {
   return posts.filter(p => p.userId === userId);
 }
 
+export function listFeed() {
+  return posts.sort((a,b)=>b.createdAt-a.createdAt);
+}
+
 export function deletePost(userId, postId) {
   const index = posts.findIndex(p => p.id === postId && p.userId === userId);
   if (index === -1) return false;
