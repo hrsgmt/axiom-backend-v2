@@ -7,3 +7,8 @@ app.get("/", async () => {
 });
 
 await app.listen({ port: process.env.PORT || 4000, host: "0.0.0.0" });
+
+app.get("/__health", async () => {
+  return { status: "ok", version: "v2" };
+});
+
